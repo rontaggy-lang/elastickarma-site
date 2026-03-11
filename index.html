@@ -1,231 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ElasticKarma Labs</title>
-
-<style>
-
-body{
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-margin:0;
-background:#f5f7fb;
-color:#111;
-line-height:1.6;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
-
-.hero{
-text-align:center;
-padding:80px 20px;
-background:white;
-}
-
-.hero h1{
-font-size:52px;
-margin-bottom:10px;
-}
-
-.tagline{
-font-size:20px;
-color:#666;
-max-width:700px;
-margin:auto;
-}
-
-.section{
-margin-top:80px;
-}
-
-.section h2{
-font-size:34px;
-margin-bottom:20px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,0.06);
-}
-
-.apps{
-margin-top:40px;
-}
-
-.app-card{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,0.06);
-max-width:500px;
-}
-
-.button{
-display:inline-block;
-padding:12px 20px;
-background:#6366f1;
-color:white;
-text-decoration:none;
-border-radius:8px;
-margin-top:15px;
-}
-
-footer{
-margin-top:80px;
-padding:40px;
-text-align:center;
-color:#777;
-font-size:14px;
-}
-
-img{
-width:100%;
-border-radius:10px;
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElasticKarma Labs</title>
+  <meta name="description" content="ElasticKarma Labs is an independent app development studio building thoughtful tools for learning, focus, and digital wellbeing." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg2:#111936;
+      --card:rgba(255,255,255,0.06);
+      --card-border:rgba(255,255,255,0.12);
+      --text:#f7f8fb;
+      --muted:#b7bfd3;
+      --primary:#7c6cff;
+      --primary2:#5aa8ff;
+      --accent:#8ef0c8;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:22px;
+      --max:1140px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 10% 0%, rgba(124,108,255,.24), transparent 60%),
+        radial-gradient(700px 400px at 100% 10%, rgba(90,168,255,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:22px 0; position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(11,16,32,.45);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .brand{
+      font-size:22px;font-weight:800;letter-spacing:-.03em;
+      display:flex;align-items:center;gap:10px;
+    }
+    .brand-badge{
+      width:32px;height:32px;border-radius:12px;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      box-shadow:0 8px 24px rgba(124,108,255,.45);
+    }
+    .nav-links{display:flex;gap:22px;color:var(--muted);font-weight:600}
+    .hero{
+      padding:88px 0 54px;
+      display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;
+    }
+    .eyebrow{
+      display:inline-block;padding:9px 14px;border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      color:#d9ddff;font-weight:700;font-size:13px;margin-bottom:18px;
+    }
+    h1{
+      margin:0 0 16px;
+      font-size:64px;line-height:1;letter-spacing:-.06em;
+      max-width:700px;
+    }
+    .hero p{
+      margin:0 0 28px;color:var(--muted);font-size:20px;max-width:700px;
+    }
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:54px;padding:0 20px;border-radius:16px;font-weight:800;
+      transition:transform .15s ease, opacity .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      color:white;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      box-shadow:0 12px 30px rgba(92,168,255,.22), 0 8px 24px rgba(124,108,255,.28);
+    }
+    .btn-secondary{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .hero-card{
+      border-radius:28px;
+      padding:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+      min-height:420px;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:-40% -20% auto auto;
+      width:280px;height:280px;border-radius:50%;
+      background:radial-gradient(circle, rgba(124,108,255,.35), transparent 65%);
+      filter:blur(10px);
+    }
+    .mock{
+      position:relative;
+      height:100%;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      padding:24px;
+    }
+    .mock-top{font-size:13px;color:#d8dcf3;letter-spacing:.16em;font-weight:800}
+    .mock-score{
+      margin-top:28px;font-size:88px;line-height:1;font-weight:900;
+      letter-spacing:-.07em;
+      background:linear-gradient(135deg,#9db0ff,#7c6cff,#65c8ff);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .mock-sub{color:var(--muted);font-weight:700;margin-top:10px}
+    .mini-card{
+      margin-top:28px;padding:16px 18px;border-radius:18px;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)
+    }
+    .mini-chip{
+      display:inline-block;padding:8px 12px;border-radius:999px;
+      background:rgba(142,240,200,.14); color:#bff8df; font-weight:700; font-size:13px;
+    }
+    .section{padding:34px 0}
+    .section h2{
+      margin:0 0 14px;font-size:42px;letter-spacing:-.05em;line-height:1.05;
+    }
+    .section .lead{
+      color:var(--muted);font-size:19px;max-width:760px;margin-bottom:26px;
+    }
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--card-border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .card h3{margin:0 0 10px;font-size:22px;letter-spacing:-.03em}
+    .card p{margin:0;color:var(--muted)}
+    .icon{
+      width:42px;height:42px;border-radius:14px;margin-bottom:14px;
+      background:linear-gradient(135deg,rgba(124,108,255,.22),rgba(90,168,255,.22));
+      border:1px solid rgba(255,255,255,.1);
+    }
+    .story{
+      display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;
+    }
+    .image{
+      min-height:340px;border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);background:#0f152b;
+    }
+    .image img{width:100%;height:100%;object-fit:cover;display:block}
+    .apps-card{
+      display:flex;justify-content:space-between;gap:16px;align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .apps-card p{max-width:700px}
+    .quote{
+      padding:24px;border-radius:24px;
+      background:linear-gradient(180deg, rgba(124,108,255,.12), rgba(90,168,255,.08));
+      border:1px solid rgba(255,255,255,.1);
+      color:#e8ecff;
+    }
+    footer{
+      padding:46px 0 60px;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.08);
+      margin-top:30px;
+    }
+    footer .foot{
+      display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    @media (max-width: 940px){
+      .hero,.story,.grid-2,.grid-3{grid-template-columns:1fr}
+      h1{font-size:48px}
+      .section h2{font-size:34px}
+      .hero p{font-size:18px}
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <div class="nav">
+      <a href="index.html" class="brand">
+        <span class="brand-badge"></span>
+        <span>ElasticKarma Labs</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#mission">Mission</a>
+        <a href="#apps">Our Apps</a>
+        <a href="support.html">Support</a>
+      </div>
+    </div>
 
-<section class="hero">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Independent App Development Lab</div>
+        <h1>Building apps that help people focus, learn, and use technology more intentionally.</h1>
+        <p>
+          ElasticKarma Labs is an indie mobile app studio focused on learning tools, digital wellbeing, and thoughtful product design. We build small, useful software that improves everyday life instead of competing for attention.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="scrollscholar.html">Explore ScrollScholar</a>
+          <a class="btn btn-secondary" href="support.html">Contact Us</a>
+        </div>
+      </div>
 
-<div class="container">
+      <div class="hero-card">
+        <div class="mock">
+          <div class="mock-top">EXAMPLE PRODUCT EXPERIENCE</div>
+          <div class="mock-score">82</div>
+          <div class="mock-sub">Scroll IQ • Scholar Mode</div>
 
-<h1>ElasticKarma Labs</h1>
+          <div class="mini-card">
+            <div class="mini-chip">Brain Wins</div>
+            <div style="margin-top:12px;font-size:26px;font-weight:800;letter-spacing:-.03em;">Turn distraction into learning</div>
+            <div style="margin-top:10px;color:var(--muted);">
+              Our products combine clean design, modern AI, and behavior-aware UX to create experiences people actually want to keep using.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p class="tagline">
-ElasticKarma Labs is an independent mobile app development studio focused on
-building thoughtful tools for learning, focus, and digital wellbeing.
-</p>
+    <section class="section" id="about">
+      <h2>About ElasticKarma</h2>
+      <div class="lead">
+        ElasticKarma Labs is a small, independent software studio building iOS products at the intersection of learning, attention, and digital behavior. We care about clear UX, useful AI, and products that feel modern without being noisy or gimmicky.
+      </div>
 
-</div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Thoughtful UX</h3>
+          <p>We design interfaces that feel fast, calm, and intuitive while still being engaging enough to create real habit change.</p>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Useful AI</h3>
+          <p>We use AI where it creates genuine leverage for users, especially around learning, summarization, and personalized workflows.</p>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Digital Wellbeing</h3>
+          <p>We build tools that help people take control of attention instead of letting attention be controlled by their devices.</p>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section class="section" id="mission">
+      <div class="story">
+        <div class="image">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Student studying with laptop and notes">
+        </div>
+        <div class="card">
+          <h2>Our Mission</h2>
+          <div class="lead" style="margin-bottom:18px;">
+            Most apps are built to capture attention. We’re interested in the opposite.
+          </div>
+          <p>
+            ElasticKarma Labs creates tools that help users redirect moments of distraction into moments of progress. Whether that means learning from your own notes, building healthier habits, or creating more intentional friction before mindless behavior, our goal is the same: make technology serve the user.
+          </p>
+          <div class="quote" style="margin-top:20px;">
+            We believe software should strengthen focus, learning, and agency — not just maximize engagement.
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section" id="apps">
+      <h2>Our Apps</h2>
+      <div class="lead">
+        We build products that combine practical utility with strong product taste. Our current app in development is ScrollScholar.
+      </div>
 
-<div class="container">
+      <div class="card apps-card">
+        <div>
+          <h3>ScrollScholar</h3>
+          <p>
+            ScrollScholar helps students reduce distraction from social media while studying. Users can add their own study notes, generate AI-powered flashcards, and optionally require a short brain challenge before selected apps unlock. The goal is to turn moments of distraction into moments of learning.
+          </p>
+        </div>
+        <div>
+          <a class="btn btn-primary" href="scrollscholar.html">View App Page</a>
+        </div>
+      </div>
+    </section>
 
-<section class="section">
-
-<div class="grid">
-
-<div>
-
-<h2>About ElasticKarma</h2>
-
-<p>
-ElasticKarma Labs is an indie app development lab focused on designing
-simple, thoughtful mobile tools that help people learn better, focus deeper,
-and build healthier relationships with technology.
-</p>
-
-<p>
-We build lightweight iOS apps that combine modern AI capabilities with
-clean design and strong privacy principles.
-</p>
-
-<p>
-Our philosophy is simple: software should help people think, learn,
-and grow—not just capture their attention.
-</p>
-
-</div>
-
-<div>
-
-<img src="https://images.unsplash.com/photo-1553877522-43269d4ea984">
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="section">
-
-<div class="grid">
-
-<div>
-
-<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
-
-</div>
-
-<div>
-
-<h2>Our Mission</h2>
-
-<p>
-Modern technology is optimized for distraction.
-ElasticKarma Labs explores the opposite idea:
-software that strengthens attention and learning.
-</p>
-
-<p>
-We experiment with new ways to combine AI, behavioral design,
-and simple interfaces to help users stay focused
-while still benefiting from modern mobile technology.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<section class="section apps">
-
-<h2>Our Apps</h2>
-
-<div class="app-card">
-
-<h3>ScrollScholar</h3>
-
-<p>
-ScrollScholar helps students reduce social media distractions
-while studying. Users can create flashcards from their own notes
-and optionally require a quick learning challenge before unlocking
-selected distracting apps.
-</p>
-
-<a class="button" href="scrollscholar.html">
-Learn more
-</a>
-
-</div>
-
-</section>
-
-</div>
-
-
-<footer>
-
-ElasticKarma Labs  
-<br><br>
-support@elastickarma.com
-
-</footer>
-
+    <footer>
+      <div class="foot">
+        <div>
+          <strong>ElasticKarma Labs</strong><br>
+          Building thoughtful apps for focus, learning, and digital wellbeing.
+        </div>
+        <div>
+          <a href="scrollscholar.html">ScrollScholar</a> ·
+          <a href="privacy.html">Privacy</a> ·
+          <a href="support.html">Support</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
-
 </html>
