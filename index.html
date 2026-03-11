@@ -1,44 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ElasticKarma Labs</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body {
-font-family: -apple-system, BlinkMacSystemFont, Arial;
+
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
 margin:0;
-background:#0f172a;
-color:white;
-text-align:center;
+background:#f5f7fb;
+color:#111;
+line-height:1.6;
 }
 
-.container {
-max-width:900px;
+.container{
+max-width:1100px;
 margin:auto;
-padding:60px 20px;
+padding:40px 20px;
 }
 
-h1 {
-font-size:48px;
+.hero{
+text-align:center;
+padding:80px 20px;
+background:white;
+}
+
+.hero h1{
+font-size:52px;
 margin-bottom:10px;
 }
 
-.tagline {
+.tagline{
 font-size:20px;
-opacity:.8;
-margin-bottom:40px;
+color:#666;
+max-width:700px;
+margin:auto;
 }
 
-.card {
-background:#1e293b;
+.section{
+margin-top:80px;
+}
+
+.section h2{
+font-size:34px;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.card{
+background:white;
 padding:30px;
 border-radius:12px;
-margin-top:30px;
+box-shadow:0 8px 20px rgba(0,0,0,0.06);
 }
 
-a.button {
+.apps{
+margin-top:40px;
+}
+
+.app-card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.06);
+max-width:500px;
+}
+
+.button{
 display:inline-block;
-padding:12px 22px;
+padding:12px 20px;
 background:#6366f1;
 color:white;
 text-decoration:none;
@@ -47,42 +87,145 @@ margin-top:15px;
 }
 
 footer{
-margin-top:60px;
-opacity:.6;
+margin-top:80px;
+padding:40px;
+text-align:center;
+color:#777;
 font-size:14px;
 }
+
+img{
+width:100%;
+border-radius:10px;
+}
+
 </style>
 </head>
 
 <body>
 
+<section class="hero">
+
 <div class="container">
 
 <h1>ElasticKarma Labs</h1>
-<div class="tagline">
-Building thoughtful apps for focus, learning, and everyday life.
+
+<p class="tagline">
+ElasticKarma Labs is an independent mobile app development studio focused on
+building thoughtful tools for learning, focus, and digital wellbeing.
+</p>
+
 </div>
 
-<div class="card">
-<h2>ScrollScholar</h2>
+</section>
+
+
+<div class="container">
+
+<section class="section">
+
+<div class="grid">
+
+<div>
+
+<h2>About ElasticKarma</h2>
 
 <p>
-ScrollScholar helps students reduce social media distraction while studying.
-Users can choose distracting apps and require a short flashcard challenge
-generated from their own notes before unlocking them.
+ElasticKarma Labs is an indie app development lab focused on designing
+simple, thoughtful mobile tools that help people learn better, focus deeper,
+and build healthier relationships with technology.
+</p>
+
+<p>
+We build lightweight iOS apps that combine modern AI capabilities with
+clean design and strong privacy principles.
+</p>
+
+<p>
+Our philosophy is simple: software should help people think, learn,
+and grow—not just capture their attention.
+</p>
+
+</div>
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1553877522-43269d4ea984">
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="grid">
+
+<div>
+
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+
+</div>
+
+<div>
+
+<h2>Our Mission</h2>
+
+<p>
+Modern technology is optimized for distraction.
+ElasticKarma Labs explores the opposite idea:
+software that strengthens attention and learning.
+</p>
+
+<p>
+We experiment with new ways to combine AI, behavioral design,
+and simple interfaces to help users stay focused
+while still benefiting from modern mobile technology.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section apps">
+
+<h2>Our Apps</h2>
+
+<div class="app-card">
+
+<h3>ScrollScholar</h3>
+
+<p>
+ScrollScholar helps students reduce social media distractions
+while studying. Users can create flashcards from their own notes
+and optionally require a quick learning challenge before unlocking
+selected distracting apps.
 </p>
 
 <a class="button" href="scrollscholar.html">
-Learn More
+Learn more
 </a>
 
 </div>
 
-<footer>
-ElasticKarma Labs • support@elastickarma.com
-</footer>
+</section>
 
 </div>
 
+
+<footer>
+
+ElasticKarma Labs  
+<br><br>
+support@elastickarma.com
+
+</footer>
+
 </body>
+
 </html>
