@@ -1,112 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Hydration Lock | ElasticKarma Labs</title>
-
-<meta name="description" content="Hydration Lock encourages healthy habits by prompting users to drink water before accessing distracting apps.">
-
-<style>
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-  background:#0f172a;
-  color:white;
-  line-height:1.6;
-}
-
-.wrap{
-  max-width:900px;
-  margin:0 auto;
-  padding:60px 24px;
-}
-
-h1{
-  font-size:48px;
-  letter-spacing:-0.05em;
-  margin-bottom:16px;
-}
-
-h2{
-  margin-top:40px;
-  font-size:28px;
-  letter-spacing:-0.03em;
-}
-
-p{
-  color:#c7d0e3;
-  font-size:18px;
-}
-
-a{
-  color:#8ea2ff;
-  text-decoration:none;
-}
-
-.feature{
-  margin-top:24px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:18px;
-  padding:20px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hydration Lock | ElasticKarma Labs</title>
+  <meta name="description" content="Hydration Lock helps users build a healthier habit by requiring a quick hydration challenge before selected distracting apps unlock." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg2:#131b39;
+      --card:rgba(255,255,255,0.06);
+      --card-border:rgba(255,255,255,0.12);
+      --text:#f7f8fb;
+      --muted:#b9c1d8;
+      --primary:#25c7d9;
+      --primary2:#4da6ff;
+      --green:#8ef0c8;
+      --orange:#ffb36c;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:22px;
+      --max:1140px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 10% 0%, rgba(37,199,217,.22), transparent 60%),
+        radial-gradient(700px 400px at 100% 10%, rgba(77,166,255,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:22px 0; position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(11,16,32,.45);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .brand{
+      font-size:22px;font-weight:800;letter-spacing:-.03em;
+      display:flex;align-items:center;gap:10px;
+    }
+    .brand-badge{
+      width:32px;height:32px;border-radius:12px;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      box-shadow:0 8px 24px rgba(37,199,217,.35);
+    }
+    .nav-links{display:flex;gap:22px;color:var(--muted);font-weight:600}
+    .hero{
+      padding:84px 0 40px;
+      display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;
+    }
+    .eyebrow{
+      display:inline-block;padding:9px 14px;border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      color:#d9ddff;font-weight:700;font-size:13px;margin-bottom:18px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:62px;line-height:1;letter-spacing:-.06em;
+      max-width:720px;
+    }
+    .hero p{
+      margin:0 0 26px;color:var(--muted);font-size:20px;max-width:700px;
+    }
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:54px;padding:0 20px;border-radius:16px;font-weight:800;
+      transition:transform .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      color:white;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      box-shadow:0 12px 30px rgba(77,166,255,.22), 0 8px 24px rgba(37,199,217,.28);
+    }
+    .btn-secondary{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .phone{
+      border-radius:30px;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);
+    }
+    .phone-screen{
+      min-height:520px;border-radius:24px;padding:22px;
+      background:linear-gradient(180deg,#10203d,#102b4d 48%, #0f3f5a 100%);
+      position:relative;overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .phone-screen::before{
+      content:"";
+      position:absolute;inset:auto -50px -60px auto;
+      width:260px;height:260px;border-radius:50%;
+      background:radial-gradient(circle, rgba(37,199,217,.30), transparent 62%);
+      filter:blur(6px);
+    }
+    .phone-screen::after{
+      content:"";
+      position:absolute;inset:20px auto auto 18px;
+      width:110px;height:110px;border-radius:50%;
+      background:radial-gradient(circle at 40% 35%, rgba(255,255,255,.28), rgba(255,255,255,.02) 70%);
+      opacity:.55;
+    }
+    .mock-head{
+      color:#d9e2ff;font-size:12px;font-weight:900;letter-spacing:.18em;
+    }
+    .mock-title{
+      margin-top:18px;font-size:34px;line-height:1.05;font-weight:900;letter-spacing:-.05em;max-width:300px;
+    }
+    .water-ring{
+      margin-top:30px;width:220px;height:220px;border-radius:50%;
+      display:grid;place-items:center;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(255,255,255,.18), transparent 38%),
+        conic-gradient(from 180deg, rgba(37,199,217,.85), rgba(77,166,255,.95), rgba(37,199,217,.85));
+      box-shadow:inset 0 0 0 18px rgba(255,255,255,.06), 0 16px 40px rgba(0,0,0,.24);
+    }
+    .water-inner{
+      width:156px;height:156px;border-radius:50%;
+      background:rgba(8,16,30,.78);
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.08);
+      text-align:center;
+    }
+    .water-score{
+      font-size:56px;font-weight:900;letter-spacing:-.06em;
+      background:linear-gradient(135deg,#8ff7ff,#4da6ff);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      line-height:1;
+    }
+    .water-sub{font-size:13px;color:#c9d2e9;font-weight:700;margin-top:6px}
+    .mini{
+      margin-top:24px;padding:16px 18px;border-radius:18px;
+      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+      max-width:340px;
+    }
+    .section{padding:34px 0}
+    .section h2{
+      margin:0 0 12px;font-size:42px;letter-spacing:-.05em;line-height:1.05;
+    }
+    .lead{color:var(--muted);font-size:19px;max-width:780px;margin-bottom:24px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--card-border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .card h3{margin:0 0 10px;font-size:22px;letter-spacing:-.03em}
+    .card p{margin:0;color:var(--muted)}
+    .icon{
+      width:42px;height:42px;border-radius:14px;margin-bottom:14px;
+      background:linear-gradient(135deg,rgba(37,199,217,.22),rgba(77,166,255,.22));
+      border:1px solid rgba(255,255,255,.1);
+    }
+    .steps .step-num{
+      width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--primary),var(--primary2));
+      font-weight:900;margin-bottom:14px;
+    }
+    .image{
+      min-height:340px;border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
+      box-shadow:var(--shadow);background:#0f152b;
+    }
+    .image img{width:100%;height:100%;object-fit:cover;display:block}
+    .badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .badge{
+      padding:9px 12px;border-radius:999px;
+      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+      color:#dee3ff;font-weight:700;font-size:13px;
+    }
+    footer{
+      padding:46px 0 60px;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.08);
+      margin-top:30px;
+    }
+    .foot{
+      display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    @media (max-width: 940px){
+      .hero,.grid-2,.grid-3{grid-template-columns:1fr}
+      h1{font-size:46px}
+      .section h2{font-size:34px}
+      .hero p{font-size:18px}
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <div class="nav">
+      <a href="index.html" class="brand">
+        <span class="brand-badge"></span>
+        <span>ElasticKarma Labs</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how">How it Works</a>
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="support.html">Support</a>
+      </div>
+    </div>
 
-<div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Habits • Digital Wellbeing • Focus</div>
+        <h1>Drink water before you scroll.</h1>
+        <p>
+          Hydration Lock helps users build a healthier daily routine by adding a quick hydration challenge before selected distracting apps unlock. It turns moments of mindless checking into moments of better habit formation.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="privacy.html">View Privacy Policy</a>
+          <a class="btn btn-secondary" href="support.html">Contact Support</a>
+        </div>
+        <div class="badge-row">
+          <div class="badge">Hydration challenge before unlock</div>
+          <div class="badge">Daily streaks and milestones</div>
+          <div class="badge">Healthy friction for distracting apps</div>
+        </div>
+      </div>
 
-<h1>Hydration Lock</h1>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="mock-head">HYDRATION LOCK</div>
+          <div class="mock-title">Build a better habit before you open distracting apps.</div>
+          <div class="water-ring">
+            <div class="water-inner">
+              <div>
+                <div class="water-score">5s</div>
+                <div class="water-sub">Unlock Window</div>
+              </div>
+            </div>
+          </div>
+          <div class="mini">
+            <strong>Hydration Challenge</strong>
+            <div style="margin-top:8px;color:#c6cce1;">Complete a quick hydration check-in, unlock your apps briefly, and keep building a healthier daily rhythm.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>
-Hydration Lock helps users build healthier habits by encouraging them to drink water before opening distracting apps.
-</p>
+    <section class="section" id="how">
+      <h2>How it works</h2>
+      <div class="lead">
+        Hydration Lock adds light, intentional friction before selected apps open, making it easier to reinforce a healthy habit throughout the day.
+      </div>
 
-<p>
-When a locked app is opened, Hydration Lock prompts the user to complete a simple hydration challenge. Once completed, the app unlocks temporarily so the user can continue.
-</p>
+      <div class="grid-3 steps">
+        <div class="card">
+          <div class="step-num">1</div>
+          <h3>Select your apps</h3>
+          <p>Choose which distracting apps you want to place behind a hydration challenge using the system app picker.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">2</div>
+          <h3>Complete the challenge</h3>
+          <p>When you try to open a locked app, Hydration Lock prompts you to drink water and complete a quick challenge flow.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">3</div>
+          <h3>Unlock and continue</h3>
+          <p>After the challenge is completed, your selected apps unlock briefly so you can continue with a healthier habit already reinforced.</p>
+        </div>
+      </div>
+    </section>
 
-<h2>How It Works</h2>
+    <section class="section" id="features">
+      <div class="grid-2" style="align-items:center;">
+        <div class="image">
+          <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=80" alt="Glass of water on a clean desk with a bright minimal setup">
+        </div>
+        <div class="card">
+          <h2>Designed to make healthy behavior easier to repeat</h2>
+          <div class="lead" style="margin-bottom:16px;">
+            Hydration Lock is intentionally simple. The goal is not to create a heavy wellness app, but a lightweight system users can actually live with every day.
+          </div>
+          <p>
+            The experience combines a short unlock challenge, streaks, XP, milestone progression, and visual rewards so hydration feels more engaging instead of just another reminder to ignore.
+          </p>
+          <div class="badge-row">
+            <div class="badge">Fast unlock flow</div>
+            <div class="badge">Streaks and XP</div>
+            <div class="badge">Ocean milestone rewards</div>
+            <div class="badge">Notification-assisted entry</div>
+            <div class="badge">Config-driven architecture</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="feature">
-<strong>1. Select Apps to Lock</strong>
-<p>
-Choose which apps you want to temporarily restrict using the system app picker.
-</p>
-</div>
+    <section class="section">
+      <div class="grid-3">
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Hydration challenge before unlock</h3>
+          <p>Selected apps can require a quick hydration check-in before access is restored, adding healthy friction to distraction loops.</p>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Streaks and progress</h3>
+          <p>Track daily completions, streaks, and XP progress so users can see the habit building over time.</p>
+        </div>
+        <div class="card">
+          <div class="icon"></div>
+          <h3>Reward-driven habit building</h3>
+          <p>Milestones and themed visual rewards help make a simple hydration action feel more satisfying and worth repeating.</p>
+        </div>
+      </div>
+    </section>
 
-<div class="feature">
-<strong>2. Drink Water</strong>
-<p>
-When you try to open a locked app, Hydration Lock prompts you to drink water first.
-</p>
-</div>
+    <section class="section" id="privacy">
+      <h2>Privacy and user control</h2>
+      <div class="lead">
+        Hydration Lock is designed around user choice and a limited, transparent use of Apple’s device-control features.
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>User-selected apps only</h3>
+          <p>Hydration Lock only applies restrictions to apps explicitly selected by the user.</p>
+        </div>
+        <div class="card">
+          <h3>No monitoring of personal content</h3>
+          <p>Hydration Lock does not read messages, browsing content, or activity inside other apps.</p>
+        </div>
+        <div class="card">
+          <h3>Habit data stays tied to the product experience</h3>
+          <p>Hydration progress, streaks, and milestone data are used to support the app’s habit-building features inside the app.</p>
+        </div>
+        <div class="card">
+          <h3>More details</h3>
+          <p>For full information about data handling and privacy, please review the Privacy Policy.</p>
+        </div>
+      </div>
+      <div style="margin-top:20px;">
+        <a class="btn btn-primary" href="privacy.html">Read Privacy Policy</a>
+      </div>
+    </section>
 
-<div class="feature">
-<strong>3. Unlock and Continue</strong>
-<p>
-After completing the hydration challenge, your apps unlock briefly so you can continue using them.
-</p>
-</div>
-
-<h2>Why Hydration Matters</h2>
-
-<p>
-Staying hydrated improves focus, energy levels, and overall wellbeing. Hydration Lock helps turn this healthy behavior into a simple daily habit.
-</p>
-
-<h2>Support</h2>
-
-<p>
-For support or questions, contact:
-<br>
-<a href="mailto:support@elastickarma.com">support@elastickarma.com</a>
-</p>
-
-</div>
-
+    <footer>
+      <div class="foot">
+        <div>
+          <strong>Hydration Lock</strong><br>
+          An ElasticKarma Labs product.
+        </div>
+        <div>
+          <a href="index.html">ElasticKarma Labs</a> ·
+          <a href="privacy.html">Privacy</a> ·
+          <a href="support.html">Support</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
