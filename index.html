@@ -96,37 +96,6 @@
       position:relative;
       min-height:420px;
     }
-    .hero-card::before{
-      content:"";
-      position:absolute; inset:-40% -20% auto auto;
-      width:280px;height:280px;border-radius:50%;
-      background:radial-gradient(circle, rgba(124,108,255,.35), transparent 65%);
-      filter:blur(10px);
-    }
-    .mock{
-      position:relative;
-      height:100%;
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.12);
-      padding:24px;
-    }
-    .mock-top{font-size:13px;color:#d8dcf3;letter-spacing:.16em;font-weight:800}
-    .mock-score{
-      margin-top:28px;font-size:88px;line-height:1;font-weight:900;
-      letter-spacing:-.07em;
-      background:linear-gradient(135deg,#9db0ff,#7c6cff,#65c8ff);
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-    }
-    .mock-sub{color:var(--muted);font-weight:700;margin-top:10px}
-    .mini-card{
-      margin-top:28px;padding:16px 18px;border-radius:18px;
-      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)
-    }
-    .mini-chip{
-      display:inline-block;padding:8px 12px;border-radius:999px;
-      background:rgba(142,240,200,.14); color:#bff8df; font-weight:700; font-size:13px;
-    }
     .section{padding:34px 0}
     .section h2{
       margin:0 0 14px;font-size:42px;letter-spacing:-.05em;line-height:1.05;
@@ -134,8 +103,6 @@
     .section .lead{
       color:var(--muted);font-size:19px;max-width:760px;margin-bottom:26px;
     }
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .card{
       background:var(--card);
       border:1px solid var(--card-border);
@@ -143,31 +110,9 @@
       padding:22px;
       box-shadow:var(--shadow);
     }
-    .card h3{margin:0 0 10px;font-size:22px;letter-spacing:-.03em}
-    .card p{margin:0;color:var(--muted)}
-    .icon{
-      width:42px;height:42px;border-radius:14px;margin-bottom:14px;
-      background:linear-gradient(135deg,rgba(124,108,255,.22),rgba(90,168,255,.22));
-      border:1px solid rgba(255,255,255,.1);
-    }
-    .story{
-      display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;
-    }
-    .image{
-      min-height:340px;border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow);background:#0f152b;
-    }
-    .image img{width:100%;height:100%;object-fit:cover;display:block}
     .apps-card{
       display:flex;justify-content:space-between;gap:16px;align-items:flex-start;
       flex-wrap:wrap;
-    }
-    .apps-card p{max-width:700px}
-    .quote{
-      padding:24px;border-radius:24px;
-      background:linear-gradient(180deg, rgba(124,108,255,.12), rgba(90,168,255,.08));
-      border:1px solid rgba(255,255,255,.1);
-      color:#e8ecff;
     }
     footer{
       padding:46px 0 60px;
@@ -178,115 +123,23 @@
     footer .foot{
       display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;
     }
-    @media (max-width: 940px){
-      .hero,.story,.grid-2,.grid-3{grid-template-columns:1fr}
-      h1{font-size:48px}
-      .section h2{font-size:34px}
-      .hero p{font-size:18px}
-    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="nav">
-      <a href="index.html" class="brand">
-        <span class="brand-badge"></span>
-        <span>ElasticKarma Labs</span>
-      </a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#mission">Mission</a>
-        <a href="#apps">Our Apps</a>
-        <a href="support.html">Support</a>
-      </div>
-    </div>
 
-    <section class="hero">
-      <div>
-        <div class="eyebrow">Independent App Development Lab</div>
-        <h1>Building apps that help people focus, learn, and use technology more intentionally.</h1>
-        <p>
-          ElasticKarma Labs is an indie mobile app studio focused on learning tools, digital wellbeing, and thoughtful product design. We build small, useful software that improves everyday life instead of competing for attention.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="scrollscholar.html">Explore ScrollScholar</a>
-          <a class="btn btn-secondary" href="support.html">Contact Us</a>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <div class="mock">
-          <div class="mock-top">EXAMPLE PRODUCT EXPERIENCE</div>
-          <div class="mock-score">82</div>
-          <div class="mock-sub">Scroll IQ • Scholar Mode</div>
-
-          <div class="mini-card">
-            <div class="mini-chip">Brain Wins</div>
-            <div style="margin-top:12px;font-size:26px;font-weight:800;letter-spacing:-.03em;">Turn distraction into learning</div>
-            <div style="margin-top:10px;color:var(--muted);">
-              Our products combine clean design, modern AI, and behavior-aware UX to create experiences people actually want to keep using.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <h2>About ElasticKarma</h2>
-      <div class="lead">
-        ElasticKarma Labs is a small, independent software studio building iOS products at the intersection of learning, attention, and digital behavior. We care about clear UX, useful AI, and products that feel modern without being noisy or gimmicky.
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon"></div>
-          <h3>Thoughtful UX</h3>
-          <p>We design interfaces that feel fast, calm, and intuitive while still being engaging enough to create real habit change.</p>
-        </div>
-        <div class="card">
-          <div class="icon"></div>
-          <h3>Useful AI</h3>
-          <p>We use AI where it creates genuine leverage for users, especially around learning, summarization, and personalized workflows.</p>
-        </div>
-        <div class="card">
-          <div class="icon"></div>
-          <h3>Digital Wellbeing</h3>
-          <p>We build tools that help people take control of attention instead of letting attention be controlled by their devices.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="mission">
-      <div class="story">
-        <div class="image">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Student studying with laptop and notes">
-        </div>
-        <div class="card">
-          <h2>Our Mission</h2>
-          <div class="lead" style="margin-bottom:18px;">
-            Most apps are built to capture attention. We’re interested in the opposite.
-          </div>
-          <p>
-            ElasticKarma Labs creates tools that help users redirect moments of distraction into moments of progress. Whether that means learning from your own notes, building healthier habits, or creating more intentional friction before mindless behavior, our goal is the same: make technology serve the user.
-          </p>
-          <div class="quote" style="margin-top:20px;">
-            We believe software should strengthen focus, learning, and agency — not just maximize engagement.
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- APPS SECTION -->
     <section class="section" id="apps">
       <h2>Our Apps</h2>
       <div class="lead">
-        We build products that combine practical utility with strong product taste. Our current apps in development are ScrollScholar and Hydration Lock.
+        We build products that combine practical utility with strong product taste. Our current apps in development are ScrollScholar, Hydration Lock, Stridez, and Still.
       </div>
 
       <div class="card apps-card">
         <div>
           <h3>ScrollScholar</h3>
           <p>
-            ScrollScholar helps students reduce distraction from social media while studying. Users can add their own study notes, generate AI-powered flashcards, and optionally require a short brain challenge before selected apps unlock. The goal is to turn moments of distraction into moments of learning.
+            ScrollScholar helps students reduce distraction from social media while studying. Users can add their own study notes, generate AI-powered flashcards, and optionally require a short brain challenge before selected apps unlock.
           </p>
         </div>
         <div>
@@ -298,7 +151,7 @@
         <div>
           <h3>Hydration Lock</h3>
           <p>
-            Hydration Lock helps users build healthier habits by encouraging them to drink water before opening distracting apps. When a locked app is opened, users complete a quick hydration challenge to temporarily unlock access and reinforce a simple daily wellness habit.
+            Hydration Lock helps users build healthier habits by encouraging them to drink water before opening distracting apps.
           </p>
         </div>
         <div>
@@ -310,13 +163,27 @@
         <div>
           <h3>Stridez</h3>
           <p>
-            Stridez makes walking feel fun, immediate, and rewarding by requiring a short burst of steps before selected distracting apps unlock. Live progress rings, a movement-powered mascot, simple streaks, and lightweight social contracts help turn passive scrolling impulses into active momentum.
+            Stridez makes walking feel fun, immediate, and rewarding by requiring a short burst of steps before selected distracting apps unlock.
           </p>
         </div>
         <div>
           <a class="btn btn-primary" href="stridez.html">View App Page</a>
         </div>
       </div>
+
+      <!-- NEW STILL APP -->
+      <div class="card apps-card" style="margin-top:18px;">
+        <div>
+          <h3>Still</h3>
+          <p>
+            Still helps users step away from distractions and enter a quiet space for prayer. By gently setting aside selected apps during a session, Still creates intentional moments of stillness, reflection, and presence without noise or pressure.
+          </p>
+        </div>
+        <div>
+          <a class="btn btn-primary" href="still.html">View App Page</a>
+        </div>
+      </div>
+
     </section>
 
     <footer>
@@ -326,14 +193,17 @@
           Building thoughtful apps for focus, learning, and digital wellbeing.
         </div>
         <div>
-        <a href="scrollscholar.html">ScrollScholar</a> ·
-<a href="hydrationlock.html">Hydration Lock</a> ·
-<a href="privacy.html">Privacy</a> ·
-<a href="terms.html">Terms of Service</a> ·
-<a href="support.html">Support</a>
+          <a href="scrollscholar.html">ScrollScholar</a> ·
+          <a href="hydrationlock.html">Hydration Lock</a> ·
+          <a href="stridez.html">Stridez</a> ·
+          <a href="still.html">Still</a> ·
+          <a href="privacy.html">Privacy</a> ·
+          <a href="terms.html">Terms of Service</a> ·
+          <a href="support.html">Support</a>
         </div>
       </div>
     </footer>
+
   </div>
 </body>
 </html>
