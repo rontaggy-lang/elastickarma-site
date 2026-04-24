@@ -4,335 +4,226 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ScrollScholar | ElasticKarma Labs</title>
-  <meta name="description" content="ScrollScholar helps students reduce social media distraction by turning their own study notes into AI-powered flashcards and brain challenges." />
+  <meta name="description" content="ScrollScholar helps students reduce social media distraction using AI-powered flashcards, focused unlock challenges, and study-first habit loops." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --bg:#0b1020;
-      --bg2:#131b39;
-      --card:rgba(255,255,255,0.06);
-      --card-border:rgba(255,255,255,0.12);
-      --text:#f7f8fb;
-      --muted:#b9c1d8;
-      --primary:#7c6cff;
-      --primary2:#5aa8ff;
-      --green:#8ef0c8;
-      --orange:#ffb36c;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --radius:22px;
-      --max:1140px;
+    :root {
+      --bg: #f6f9ff;
+      --surface: #ffffff;
+      --surface-soft: #f0f6ff;
+      --ink: #0d1b45;
+      --muted: #5b678f;
+      --line: #d5e3ff;
+      --blue: #167fd8;
+      --blue-dark: #112875;
+      --shadow: 0 20px 50px rgba(16, 40, 120, 0.12);
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --max: 1180px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text);
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      color: var(--ink);
       background:
-        radial-gradient(900px 500px at 10% 0%, rgba(124,108,255,.24), transparent 60%),
-        radial-gradient(700px 400px at 100% 10%, rgba(90,168,255,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      line-height:1.55;
+        radial-gradient(1200px 600px at 100% -10%, rgba(22, 127, 216, 0.14), transparent 58%),
+        radial-gradient(900px 500px at 0% 4%, rgba(90, 61, 214, 0.1), transparent 56%),
+        var(--bg);
+      line-height: 1.55;
     }
-    a{text-decoration:none;color:inherit}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:22px 0; position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background:rgba(11,16,32,.45);
-      border-bottom:1px solid rgba(255,255,255,.06);
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(100%, var(--max)); margin: 0 auto; padding: 0 24px; }
+    .nav-shell {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(246, 249, 255, 0.84);
+      border-bottom: 1px solid rgba(213, 227, 255, 0.85);
     }
-    .brand{
-      font-size:22px;font-weight:800;letter-spacing:-.03em;
-      display:flex;align-items:center;gap:10px;
+    .nav { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand img { width: 210px; max-width: 100%; display: block; height: auto; }
+    .nav-links { display: flex; gap: 20px; color: var(--muted); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.03em; }
+    .hero {
+      padding: 78px 0 38px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
     }
-    .brand-badge{
-      width:32px;height:32px;border-radius:12px;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      box-shadow:0 8px 24px rgba(124,108,255,.45);
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--blue-dark);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      margin-bottom: 14px;
     }
-    .nav-links{display:flex;gap:22px;color:var(--muted);font-weight:600}
-    .hero{
-      padding:84px 0 40px;
-      display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;
+    h1 {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      font-size: clamp(34px, 5.6vw, 58px);
+      line-height: 1.03;
+      letter-spacing: -0.03em;
     }
-    .eyebrow{
-      display:inline-block;padding:9px 14px;border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
-      color:#d9ddff;font-weight:700;font-size:13px;margin-bottom:18px;
+    .hero p { margin: 16px 0 0; font-size: 19px; color: var(--muted); max-width: 680px; }
+    .cta-row { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      min-height: 48px;
+      border-radius: 14px;
+      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
     }
-    h1{
-      margin:0 0 14px;
-      font-size:62px;line-height:1;letter-spacing:-.06em;
-      max-width:720px;
+    .btn-primary { color: #fff; background: linear-gradient(135deg, var(--blue-dark), var(--blue)); box-shadow: 0 14px 28px rgba(17, 40, 117, 0.22); }
+    .btn-secondary { color: var(--ink); border: 1px solid var(--line); background: #fff; }
+    .hero-panel { background: linear-gradient(160deg, #fff 0%, #edf4ff 100%); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow); }
+    .hero-panel h3 { margin: 0; font-family: "Sora", sans-serif; font-size: 24px; letter-spacing: -0.02em; }
+    .hero-panel p { margin: 10px 0 0; color: var(--muted); }
+    .badge-row { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge { border: 1px solid var(--line); background: #fff; color: #435486; border-radius: 999px; padding: 8px 11px; font-size: 12px; font-weight: 700; }
+    .section { padding: 28px 0; }
+    .section h2 { margin: 0; font-family: "Sora", sans-serif; letter-spacing: -0.025em; font-size: clamp(28px, 3.3vw, 42px); }
+    .section .lead { margin: 14px 0 0; color: var(--muted); font-size: 18px; max-width: 860px; }
+    .grid-3 { margin-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .grid-2 { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow); }
+    .card h3 { margin: 0; font-family: "Sora", sans-serif; font-size: 20px; letter-spacing: -0.02em; }
+    .card p, .card li { margin: 10px 0 0; color: var(--muted); font-size: 16px; }
+    .card ul { padding-left: 18px; margin: 0; }
+    .step-num {
+      width: 30px; height: 30px; border-radius: 999px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800; color: #fff;
+      background: var(--blue-dark); margin-bottom: 10px;
     }
-    .hero p{
-      margin:0 0 26px;color:var(--muted);font-size:20px;max-width:700px;
+    footer {
+      margin-top: 34px;
+      border-top: 1px solid var(--line);
+      padding: 26px 0 46px;
+      color: var(--muted);
     }
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:54px;padding:0 20px;border-radius:16px;font-weight:800;
-      transition:transform .15s ease;
+    .foot { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+    .foot .links { display: flex; flex-wrap: wrap; gap: 10px; font-weight: 700; color: #48557f; }
+    @media (max-width: 980px) {
+      .hero, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .brand img { width: 186px; }
     }
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{
-      color:white;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      box-shadow:0 12px 30px rgba(92,168,255,.22), 0 8px 24px rgba(124,108,255,.28);
-    }
-    .btn-secondary{
-      color:var(--text);
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-    }
-    .phone{
-      border-radius:30px;
-      padding:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow);
-    }
-    .phone-screen{
-      min-height:520px;border-radius:24px;padding:22px;
-      background:linear-gradient(180deg,#151d3e,#0e1430);
-      border:1px solid rgba(255,255,255,.08);
-      position:relative;overflow:hidden;
-    }
-    .mock-head{font-size:13px;font-weight:800;letter-spacing:.16em;color:#dbe0ff}
-    .mock-title{margin-top:22px;font-size:34px;font-weight:900;letter-spacing:-.05em}
-    .iq-ring{
-      width:180px;height:180px;border-radius:50%;margin:26px auto;
-      background:conic-gradient(#3aa9ff 0deg,#7c6cff 230deg,#8ef0c8 310deg,#263156 310deg);
-      display:grid;place-items:center;
-      box-shadow:0 0 40px rgba(124,108,255,.26);
-    }
-    .iq-inner{
-      width:130px;height:130px;border-radius:50%;background:#101735;
-      display:grid;place-items:center;text-align:center;padding:12px;
-    }
-    .iq-score{font-size:44px;font-weight:900;line-height:1}
-    .iq-sub{color:#c3c9de;font-weight:700;margin-top:6px}
-    .mini{
-      margin-top:18px;border-radius:18px;padding:16px;
-      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)
-    }
-    .mini strong{display:block;font-size:20px;letter-spacing:-.03em}
-    .section{padding:34px 0}
-    .section h2{margin:0 0 14px;font-size:42px;letter-spacing:-.05em}
-    .lead{color:var(--muted);font-size:19px;max-width:780px;margin-bottom:24px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .card{
-      background:var(--card);
-      border:1px solid var(--card-border);
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow:var(--shadow);
-    }
-    .card h3{margin:0 0 10px;font-size:22px;letter-spacing:-.03em}
-    .card p{margin:0;color:var(--muted)}
-    .icon{
-      width:42px;height:42px;border-radius:14px;margin-bottom:14px;
-      background:linear-gradient(135deg,rgba(124,108,255,.22),rgba(90,168,255,.22));
-      border:1px solid rgba(255,255,255,.1);
-    }
-    .steps .step-num{
-      width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      font-weight:900;margin-bottom:14px;
-    }
-    .image{
-      min-height:340px;border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow);background:#0f152b;
-    }
-    .image img{width:100%;height:100%;object-fit:cover;display:block}
-    .badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-    .badge{
-      padding:9px 12px;border-radius:999px;
-      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
-      color:#dee3ff;font-weight:700;font-size:13px;
-    }
-    footer{
-      padding:46px 0 60px;
-      color:var(--muted);
-      border-top:1px solid rgba(255,255,255,.08);
-      margin-top:30px;
-    }
-    .foot{
-      display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;
-    }
-    @media (max-width: 940px){
-      .hero,.grid-2,.grid-3{grid-template-columns:1fr}
-      h1{font-size:46px}
-      .section h2{font-size:34px}
-      .hero p{font-size:18px}
-    }
+    @media (max-width: 620px) { .wrap { padding: 0 16px; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="nav">
-      <a href="index.html" class="brand">
-        <span class="brand-badge"></span>
-        <span>ElasticKarma Labs</span>
+  <div class="nav-shell">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="ElasticKarma Labs home">
+        <img src="assets/logo.png" alt="ElasticKarma Labs" />
       </a>
       <div class="nav-links">
-        <a href="#how">How it Works</a>
-        <a href="#features">Features</a>
-        <a href="#privacy">Privacy</a>
+        <a href="index.html">Home</a>
+        <a href="#how">How It Works</a>
+        <a href="privacy.html">Privacy</a>
         <a href="support.html">Support</a>
       </div>
     </div>
+  </div>
 
+  <main class="wrap">
     <section class="hero">
       <div>
         <div class="eyebrow">Focus • Learning • Digital Wellbeing</div>
         <h1>Turn social media distraction into study time.</h1>
         <p>
-          ScrollScholar helps students use their own notes to create AI-powered flashcards and brain challenges. During study sessions, selected distracting apps can require a quick challenge before unlocking.
+          ScrollScholar helps students use their own notes to create AI-powered flashcards and brain challenges.
+          During study sessions, selected apps can require a quick challenge before unlocking.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="privacy.html">View Privacy Policy</a>
-          <a class="btn btn-secondary" href="support.html">Contact Support</a>
+          <a class="btn btn-primary" href="support.html">Get Support</a>
+          <a class="btn btn-secondary" href="privacy.html">View Privacy Policy</a>
         </div>
+      </div>
+      <aside class="hero-panel">
+        <h3>Built for real students</h3>
+        <p>Personalized review loops that make unlocking distracting apps feel productive instead of impulsive.</p>
         <div class="badge-row">
-          <div class="badge">AI flashcards from your notes</div>
-          <div class="badge">Brain challenges before unlock</div>
-          <div class="badge">Scroll IQ progress tracking</div>
+          <span class="badge">AI flashcards from your notes</span>
+          <span class="badge">Brain challenge unlocks</span>
+          <span class="badge">Progress tracking</span>
         </div>
-      </div>
-
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="mock-head">SCROLLSCHOLAR</div>
-          <div class="mock-title">Your brain comes first.</div>
-          <div class="iq-ring">
-            <div class="iq-inner">
-              <div>
-                <div class="iq-score">82</div>
-                <div class="iq-sub">Scroll IQ</div>
-              </div>
-            </div>
-          </div>
-          <div class="mini">
-            <strong>Brain Wins</strong>
-            <div style="margin-top:8px;color:#c6cce1;">Beat one quick challenge from your notes to unlock and keep studying while you scroll.</div>
-          </div>
-        </div>
-      </div>
+      </aside>
     </section>
 
     <section class="section" id="how">
       <h2>How ScrollScholar works</h2>
-      <div class="lead">
-        ScrollScholar is designed to help students redirect moments of distraction into moments of recall and review.
-      </div>
-
-      <div class="grid-3 steps">
-        <div class="card">
+      <p class="lead">A simple loop designed to redirect distraction toward retention and recall.</p>
+      <div class="grid-3">
+        <article class="card">
           <div class="step-num">1</div>
           <h3>Add your study notes</h3>
-          <p>Paste lecture notes, scan study pages, or import summaries. ScrollScholar uses your own material as the basis for learning challenges.</p>
-        </div>
-        <div class="card">
+          <p>Paste notes, upload study text, or import summaries to build a personal learning foundation.</p>
+        </article>
+        <article class="card">
           <div class="step-num">2</div>
           <h3>Generate AI flashcards</h3>
-          <p>The app creates concise study questions from your notes so the challenges feel personalized, relevant, and actually useful.</p>
-        </div>
-        <div class="card">
+          <p>ScrollScholar creates concise questions based on your own material so review stays relevant.</p>
+        </article>
+        <article class="card">
           <div class="step-num">3</div>
-          <h3>Unlock with a brain challenge</h3>
-          <p>During study time, selected distracting apps can require a quick challenge before access is granted, helping turn distraction into review.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="features">
-      <div class="grid-2">
-        <div class="image">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Students collaborating with notes and laptop">
-        </div>
-        <div class="card">
-          <h2>Designed for real students</h2>
-          <div class="lead" style="margin-bottom:18px;">
-            ScrollScholar combines AI flashcards, study mode, and focus mechanics in one streamlined experience.
-          </div>
-          <p>
-            Instead of relying on generic questions, ScrollScholar uses the user’s own notes as the basis for AI-generated flashcards. The result is a more personal and useful study flow, especially for quiz prep, recall practice, and daily review.
-          </p>
-          <div class="badge-row">
-            <div class="badge">Study mode</div>
-            <div class="badge">Mixed review</div>
-            <div class="badge">Scroll Debt</div>
-            <div class="badge">Streaks and XP</div>
-            <div class="badge">On-device focus flow</div>
-          </div>
-        </div>
+          <h3>Unlock with a challenge</h3>
+          <p>Selected apps can require a quick brain check before access is granted during focus time.</p>
+        </article>
       </div>
     </section>
 
     <section class="section">
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon"></div>
-          <h3>AI-generated flashcards</h3>
-          <p>Create quick study questions from user-provided notes, summaries, and scanned material.</p>
-        </div>
-        <div class="card">
-          <div class="icon"></div>
-          <h3>Scroll IQ</h3>
-          <p>Track progress, study consistency, and lightweight gamified metrics that make the experience more engaging.</p>
-        </div>
-        <div class="card">
-          <div class="icon"></div>
-          <h3>Focus-aware unlock flow</h3>
-          <p>During configured study periods, selected distracting apps can require a brief learning challenge before opening.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="privacy">
-      <h2>Privacy and user control</h2>
-      <div class="lead">
-        ScrollScholar is designed around user choice and limited use of device-control features.
-      </div>
+      <h2>Key capabilities</h2>
       <div class="grid-2">
-        <div class="card">
-          <h3>User-selected apps only</h3>
-          <p>ScrollScholar only applies restrictions to apps explicitly selected by the user.</p>
-        </div>
-        <div class="card">
-          <h3>No monitoring of personal content</h3>
-          <p>ScrollScholar does not read messages, browsing content, or activity inside other apps.</p>
-        </div>
-        <div class="card">
-          <h3>Study notes stay tied to learning</h3>
-          <p>Notes added by the user are used to generate flashcards and learning challenges inside the app.</p>
-        </div>
-        <div class="card">
-          <h3>More details</h3>
-          <p>For full information about data handling and privacy, please review the Privacy Policy.</p>
-        </div>
-      </div>
-      <div style="margin-top:20px;">
-        <a class="btn btn-primary" href="privacy.html">Read Privacy Policy</a>
+        <article class="card">
+          <h3>Study-first unlock flow</h3>
+          <ul>
+            <li>Short challenge prompts before unlock.</li>
+            <li>Configurable study windows and routines.</li>
+            <li>Supports structured habit building.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Personalized learning loop</h3>
+          <ul>
+            <li>Questions generated from user notes.</li>
+            <li>Repetition for better memory retention.</li>
+            <li>Progress insights to reinforce consistency.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <footer>
       <div class="foot">
         <div>
-          <strong>ScrollScholar</strong><br>
-          An ElasticKarma Labs product.
+          <strong style="font-family:'Sora',sans-serif; color:#1b2b66;">ElasticKarma Labs</strong><br />
+          iOS app development for focus, learning, and digital wellbeing.
         </div>
-        <div>
-          <a href="index.html">ElasticKarma Labs</a> ·
-          <a href="privacy.html">Privacy</a> ·
+        <div class="links">
+          <a href="scrollscholar.html">ScrollScholar</a>
+          <a href="hydrationlock.html">Hydration Lock</a>
+          <a href="stridez.html">Stridez</a>
+          <a href="still.html">Still</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
           <a href="support.html">Support</a>
         </div>
       </div>
     </footer>
-  </div>
+  </main>
 </body>
 </html>

@@ -4,334 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Still | ElasticKarma Labs</title>
-  <meta name="description" content="Still helps users step away from distraction and enter a quiet space for prayer with gentle reminders, intentional boundaries, and a calm, faith-based experience." />
+  <meta name="description" content="Still helps users step away from distraction and enter a quiet space for prayer with gentle reminders and intentional boundaries." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --bg:#0b1020;
-      --bg2:#131b39;
-      --card:rgba(255,255,255,0.06);
-      --card-border:rgba(255,255,255,0.12);
-      --text:#f7f8fb;
-      --muted:#b9c1d8;
-      --primary:#7c6cff;
-      --primary2:#5aa8ff;
-      --amber:#d4a373;
-      --amber2:#f0c28a;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --radius:22px;
-      --max:1140px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 10% 0%, rgba(124,108,255,.18), transparent 60%),
-        radial-gradient(700px 400px at 100% 10%, rgba(90,168,255,.12), transparent 55%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      line-height:1.55;
-    }
-    a{text-decoration:none;color:inherit}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:22px 0; position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background:rgba(11,16,32,.45);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .brand{
-      font-size:22px;font-weight:800;letter-spacing:-.03em;
-      display:flex;align-items:center;gap:10px;
-    }
-    .brand-badge{
-      width:32px;height:32px;border-radius:12px;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      box-shadow:0 8px 24px rgba(124,108,255,.45);
-    }
-    .nav-links{display:flex;gap:22px;color:var(--muted);font-weight:600}
-    .hero{
-      padding:84px 0 40px;
-      display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;
-    }
-    .eyebrow{
-      display:inline-block;padding:9px 14px;border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
-      color:#d9ddff;font-weight:700;font-size:13px;margin-bottom:18px;
-    }
-    h1{
-      margin:0 0 14px;
-      font-size:62px;line-height:1;letter-spacing:-.06em;
-      max-width:720px;
-    }
-    .hero p{
-      margin:0 0 26px;color:var(--muted);font-size:20px;max-width:700px;
-    }
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:54px;padding:0 20px;border-radius:16px;font-weight:800;
-      transition:transform .15s ease;
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{
-      color:white;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      box-shadow:0 12px 30px rgba(92,168,255,.22), 0 8px 24px rgba(124,108,255,.28);
-    }
-    .btn-secondary{
-      color:var(--text);
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-    }
-    .phone{
-      border-radius:30px;
-      padding:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow);
-    }
-    .phone-screen{
-      min-height:520px;border-radius:24px;padding:22px;
-      background:linear-gradient(180deg,#121212,#0d0f17);
-      border:1px solid rgba(255,255,255,.08);
-      position:relative;overflow:hidden;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      text-align:center;
-    }
-    .mock-head{font-size:13px;font-weight:800;letter-spacing:.16em;color:#dbe0ff;position:absolute;top:22px;left:22px}
-    .orb{
-      width:170px;height:170px;border-radius:50%;
-      background:radial-gradient(circle, rgba(240,194,138,.36) 0%, rgba(212,163,115,.18) 42%, rgba(212,163,115,.06) 72%, transparent 100%);
-      filter:blur(2px);
-      box-shadow:0 0 48px rgba(212,163,115,.18);
-      margin-bottom:26px;
-    }
-    .mock-title{
-      font-size:34px;font-weight:900;letter-spacing:-.05em;
-      margin:0;
-      font-family:Georgia,"Times New Roman",serif;
-    }
-    .mock-sub{
-      margin-top:12px;color:#c9cfdf;max-width:280px
-    }
-    .mini{
-      margin-top:24px;border-radius:18px;padding:16px;
-      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-      width:100%;
-    }
-    .mini strong{display:block;font-size:20px;letter-spacing:-.03em}
-    .section{padding:34px 0}
-    .section h2{margin:0 0 14px;font-size:42px;letter-spacing:-.05em}
-    .lead{color:var(--muted);font-size:19px;max-width:780px;margin-bottom:24px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .card{
-      background:var(--card);
-      border:1px solid var(--card-border);
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow:var(--shadow);
-    }
-    .card h3{margin:0 0 10px;font-size:22px;letter-spacing:-.03em}
-    .card p{margin:0;color:var(--muted)}
-    .icon{
-      width:42px;height:42px;border-radius:14px;margin-bottom:14px;
-      background:linear-gradient(135deg,rgba(124,108,255,.22),rgba(212,163,115,.22));
-      border:1px solid rgba(255,255,255,.1);
-    }
-    .steps .step-num{
-      width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));
-      font-weight:900;margin-bottom:14px;
-    }
-    .image{
-      min-height:340px;border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow);background:#0f152b;
-    }
-    .image img{width:100%;height:100%;object-fit:cover;display:block}
-    .badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-    .badge{
-      padding:9px 12px;border-radius:999px;
-      background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
-      color:#dee3ff;font-weight:700;font-size:13px;
-    }
-    footer{
-      padding:46px 0 60px;
-      color:var(--muted);
-      border-top:1px solid rgba(255,255,255,.08);
-      margin-top:30px;
-    }
-    .foot{
-      display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;
-    }
-    @media (max-width: 940px){
-      .hero,.grid-2,.grid-3{grid-template-columns:1fr}
-      h1{font-size:46px}
-      .section h2{font-size:34px}
-      .hero p{font-size:18px}
-    }
+    :root { --bg:#f6f9ff; --surface:#fff; --ink:#0d1b45; --muted:#5b678f; --line:#d5e3ff; --blue:#167fd8; --blue-dark:#112875; --shadow:0 20px 50px rgba(16,40,120,.12); --radius-lg:26px; --radius-md:18px; --max:1180px; }
+    *{box-sizing:border-box} body{margin:0;font-family:"Manrope","Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(1200px 600px at 100% -10%, rgba(22,127,216,.14), transparent 58%),radial-gradient(900px 500px at 0% 4%, rgba(90,61,214,.1), transparent 56%),var(--bg);line-height:1.55}
+    a{color:inherit;text-decoration:none}.wrap{width:min(100%,var(--max));margin:0 auto;padding:0 24px}
+    .nav-shell{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:rgba(246,249,255,.84);border-bottom:1px solid rgba(213,227,255,.85)}
+    .nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand img{width:210px;max-width:100%;display:block;height:auto}
+    .nav-links{display:flex;gap:20px;color:var(--muted);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.03em}
+    .hero{padding:78px 0 38px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .eyebrow{display:inline-flex;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--blue-dark);border:1px solid var(--line);background:rgba(255,255,255,.82);margin-bottom:14px}
+    h1{margin:0;font-family:"Sora",sans-serif;font-size:clamp(34px,5.6vw,58px);line-height:1.03;letter-spacing:-.03em}.hero p{margin:16px 0 0;font-size:19px;color:var(--muted);max-width:680px}
+    .cta-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}.btn{min-height:48px;border-radius:14px;padding:0 16px;display:inline-flex;align-items:center;justify-content:center;font-weight:800}
+    .btn-primary{color:#fff;background:linear-gradient(135deg,var(--blue-dark),var(--blue));box-shadow:0 14px 28px rgba(17,40,117,.22)}.btn-secondary{color:var(--ink);border:1px solid var(--line);background:#fff}
+    .hero-panel{background:linear-gradient(160deg,#fff 0%,#edf4ff 100%);border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow)}
+    .hero-panel h3{margin:0;font-family:"Sora",sans-serif;font-size:24px;letter-spacing:-.02em}.hero-panel p{margin:10px 0 0;color:var(--muted)}
+    .badge-row{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}.badge{border:1px solid var(--line);background:#fff;color:#435486;border-radius:999px;padding:8px 11px;font-size:12px;font-weight:700}
+    .section{padding:28px 0}.section h2{margin:0;font-family:"Sora",sans-serif;letter-spacing:-.025em;font-size:clamp(28px,3.3vw,42px)}.section .lead{margin:14px 0 0;color:var(--muted);font-size:18px;max-width:860px}
+    .grid-3{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.grid-2{margin-top:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:20px;box-shadow:var(--shadow)}.card h3{margin:0;font-family:"Sora",sans-serif;font-size:20px;letter-spacing:-.02em}
+    .card p,.card li{margin:10px 0 0;color:var(--muted);font-size:16px}.card ul{padding-left:18px;margin:0}
+    .step-num{width:30px;height:30px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;background:var(--blue-dark);margin-bottom:10px}
+    footer{margin-top:34px;border-top:1px solid var(--line);padding:26px 0 46px;color:var(--muted)}.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+    .foot .links{display:flex;flex-wrap:wrap;gap:10px;font-weight:700;color:#48557f}
+    @media (max-width:980px){.hero,.grid-3,.grid-2{grid-template-columns:1fr}.nav-links{display:none}.brand img{width:186px}} @media (max-width:620px){.wrap{padding:0 16px}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="nav">
-      <a href="index.html" class="brand">
-        <span class="brand-badge"></span>
-        <span>ElasticKarma Labs</span>
-      </a>
-      <div class="nav-links">
-        <a href="#how">How it Works</a>
-        <a href="#features">Features</a>
-        <a href="#privacy">Privacy</a>
-        <a href="support.html">Support</a>
-      </div>
-    </div>
-
+  <div class="nav-shell"><div class="wrap nav"><a class="brand" href="index.html" aria-label="ElasticKarma Labs home"><img src="assets/logo.png" alt="ElasticKarma Labs" /></a><div class="nav-links"><a href="index.html">Home</a><a href="#how">How It Works</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></div></div></div>
+  <main class="wrap">
     <section class="hero">
       <div>
-        <div class="eyebrow">Prayer • Stillness • Digital Boundaries</div>
-        <h1>Create a quiet space for prayer in the middle of a noisy day.</h1>
-        <p>
-          Still helps users step away from distraction and enter a dedicated space for prayer. With gentle reminders, intentional boundaries, and a calm experience designed around presence, Still makes it easier to return to God without noise or pressure.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="privacy.html">View Privacy Policy</a>
-          <a class="btn btn-secondary" href="support.html">Contact Support</a>
-        </div>
-        <div class="badge-row">
-          <div class="badge">Quiet space for prayer</div>
-          <div class="badge">Gentle reminders to return</div>
-          <div class="badge">Distractions held during prayer time</div>
-        </div>
+        <div class="eyebrow">Prayer • Stillness • Boundaries</div>
+        <h1>Create a quiet space for prayer inside a noisy day.</h1>
+        <p>Still helps users step away from distraction and return to prayer through gentle reminders and intentional digital boundaries.</p>
+        <div class="cta-row"><a class="btn btn-primary" href="support.html">Get Support</a><a class="btn btn-secondary" href="privacy.html">View Privacy Policy</a></div>
       </div>
-
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="mock-head">STILL</div>
-          <div class="orb"></div>
-          <h2 class="mock-title">Be still</h2>
-          <div class="mock-sub">A small part of your day set apart for prayer.</div>
-          <div class="mini">
-            <strong>Return to what matters</strong>
-            <div style="margin-top:8px;color:#c6cce1;">Step away from distractions, pray without interruption, and let Still guide you back when your time ends.</div>
-          </div>
-        </div>
-      </div>
+      <aside class="hero-panel">
+        <h3>Prayer-first product design</h3>
+        <p>A calm experience that reduces clutter and protects intentional time with minimal friction.</p>
+        <div class="badge-row"><span class="badge">Quiet prayer sessions</span><span class="badge">Gentle return prompts</span><span class="badge">Distraction boundaries</span></div>
+      </aside>
     </section>
 
     <section class="section" id="how">
       <h2>How Still works</h2>
-      <div class="lead">
-        Still is designed to help users create intentional moments of prayer without getting trapped in noise, notifications, or mindless app use.
-      </div>
-
-      <div class="grid-3 steps">
-        <div class="card">
-          <div class="step-num">1</div>
-          <h3>Choose your Still Space</h3>
-          <p>Set a time and duration for prayer so your day includes a moment that is intentionally set apart.</p>
-        </div>
-        <div class="card">
-          <div class="step-num">2</div>
-          <h3>Set distractions aside</h3>
-          <p>Select the apps that usually pull your attention away. During Still Space, they can be gently held back.</p>
-        </div>
-        <div class="card">
-          <div class="step-num">3</div>
-          <h3>Step away and pray</h3>
-          <p>Enter a quiet space, put the phone down if you want, and return when your time of prayer is complete.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="features">
-      <div class="grid-2">
-        <div class="image">
-          <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1200&q=80" alt="Quiet reflective moment by a window with warm light">
-        </div>
-        <div class="card">
-          <h2>Built for prayer, not noise</h2>
-          <div class="lead" style="margin-bottom:18px;">
-            Still is not a meditation app and not a productivity tool. It is a simple, faith-based space for returning to prayer.
-          </div>
-          <p>
-            Instead of filling the screen with metrics, content feeds, or clutter, Still keeps the experience quiet and grounded. It helps create structure around prayer while staying out of the way, so the focus remains where it should be.
-          </p>
-          <div class="badge-row">
-            <div class="badge">Prayer-first design</div>
-            <div class="badge">Gentle guided mode</div>
-            <div class="badge">Step-away friendly</div>
-            <div class="badge">Guard Your Time</div>
-            <div class="badge">Minimal and calm</div>
-          </div>
-        </div>
+      <p class="lead">A simple flow that helps users set time apart, reduce noise, and return to what matters.</p>
+      <div class="grid-3">
+        <article class="card"><div class="step-num">1</div><h3>Choose your Still session</h3><p>Select a time and duration to create a defined prayer window.</p></article>
+        <article class="card"><div class="step-num">2</div><h3>Set distractions aside</h3><p>Temporarily hold selected apps so the session stays protected from interruptions.</p></article>
+        <article class="card"><div class="step-num">3</div><h3>Enter a quiet mode</h3><p>Use guided stillness cues and return when your intentional session is complete.</p></article>
       </div>
     </section>
 
     <section class="section">
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon"></div>
-          <h3>Still Space sessions</h3>
-          <p>Choose a short, intentional space for prayer with a calm visual anchor, minimal guidance, and no unnecessary friction.</p>
-        </div>
-        <div class="card">
-          <div class="icon"></div>
-          <h3>Distraction boundaries</h3>
-          <p>Set aside the apps that pull your attention away so prayer can happen without constant interruption.</p>
-        </div>
-        <div class="card">
-          <div class="icon"></div>
-          <h3>Gentle return system</h3>
-          <p>Still uses reminders and subtle end-of-session signals to call you back without noise, pressure, or clutter.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="privacy">
-      <h2>Privacy and user control</h2>
-      <div class="lead">
-        Still is built around user choice, limited device-control features, and clear boundaries.
-      </div>
+      <h2>Key capabilities</h2>
       <div class="grid-2">
-        <div class="card">
-          <h3>User-selected apps only</h3>
-          <p>Still only applies boundaries to apps explicitly chosen by the user.</p>
-        </div>
-        <div class="card">
-          <h3>No monitoring of personal content</h3>
-          <p>Still does not read messages, browsing content, or activity inside other apps.</p>
-        </div>
-        <div class="card">
-          <h3>Prayer time is user-directed</h3>
-          <p>Users control when Still Space begins, how long it lasts, and what they choose to set aside.</p>
-        </div>
-        <div class="card">
-          <h3>More details</h3>
-          <p>For full information about data handling and privacy, please review the Privacy Policy.</p>
-        </div>
-      </div>
-      <div style="margin-top:20px;">
-        <a class="btn btn-primary" href="privacy.html">Read Privacy Policy</a>
+        <article class="card"><h3>Session-based stillness</h3><ul><li>Time-boxed prayer windows.</li><li>Minimal, low-noise interface behavior.</li><li>Supports recurring intentional practice.</li></ul></article>
+        <article class="card"><h3>Digital boundary support</h3><ul><li>Gentle app boundary controls.</li><li>Presence-oriented interaction design.</li><li>Built for reflective routines.</li></ul></article>
       </div>
     </section>
 
-    <footer>
-      <div class="foot">
-        <div>
-          <strong>Still</strong><br>
-          An ElasticKarma Labs product.
-        </div>
-        <div>
-          <a href="index.html">ElasticKarma Labs</a> ·
-          <a href="privacy.html">Privacy</a> ·
-          <a href="support.html">Support</a>
-        </div>
-      </div>
-    </footer>
-  </div>
+    <footer><div class="foot"><div><strong style="font-family:'Sora',sans-serif;color:#1b2b66;">ElasticKarma Labs</strong><br />iOS app development for focus, learning, and digital wellbeing.</div><div class="links"><a href="scrollscholar.html">ScrollScholar</a><a href="hydrationlock.html">Hydration Lock</a><a href="stridez.html">Stridez</a><a href="still.html">Still</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></div></div></footer>
+  </main>
 </body>
 </html>

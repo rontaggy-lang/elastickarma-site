@@ -3,98 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy | ElasticKarma</title>
+  <title>Privacy Policy | ElasticKarma Labs</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-      background:#0f172a;color:white;line-height:1.7;
-    }
-    .wrap{max-width:900px;margin:0 auto;padding:56px 24px}
-    h1{font-size:48px;letter-spacing:-.05em;margin:0 0 18px}
-    h2{margin-top:32px;font-size:26px;letter-spacing:-.03em}
-    p, li{color:#c7d0e3;font-size:17px}
-    a{color:#8ea2ff;text-decoration:none}
+    :root { --bg:#f6f9ff; --surface:#fff; --ink:#0d1b45; --muted:#5b678f; --line:#d5e3ff; --blue:#167fd8; --blue-dark:#112875; --shadow:0 20px 50px rgba(16,40,120,.12); --radius-lg:26px; --radius-md:18px; --max:980px; }
+    *{box-sizing:border-box} body{margin:0;font-family:"Manrope","Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(1200px 600px at 100% -10%, rgba(22,127,216,.14), transparent 58%),radial-gradient(900px 500px at 0% 4%, rgba(90,61,214,.1), transparent 56%),var(--bg);line-height:1.65}
+    a{color:var(--blue-dark);text-decoration:none}.wrap{width:min(100%,var(--max));margin:0 auto;padding:0 24px}
+    .nav-shell{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:rgba(246,249,255,.84);border-bottom:1px solid rgba(213,227,255,.85)}
+    .nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand img{width:210px;max-width:100%;display:block;height:auto}
+    .nav-links{display:flex;gap:20px;color:var(--muted);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.03em}
+    .hero{padding:56px 0 20px}.eyebrow{display:inline-flex;padding:8px 14px;border-radius:999px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--blue-dark);border:1px solid var(--line);background:rgba(255,255,255,.82);margin-bottom:14px}
+    h1{margin:0;font-family:"Sora",sans-serif;font-size:clamp(34px,6vw,52px);line-height:1.04;letter-spacing:-.03em}.sub{margin:12px 0 0;color:var(--muted);font-size:18px}
+    .card{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow)}
+    .section + .section{margin-top:22px}.section h2{margin:0;font-family:"Sora",sans-serif;font-size:26px;letter-spacing:-.02em}.section p,.section li{margin:10px 0 0;color:var(--muted);font-size:16px}
+    ul{margin:0;padding-left:20px} footer{margin-top:34px;border-top:1px solid var(--line);padding:26px 0 46px;color:var(--muted)}
+    .foot{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}.foot .links{display:flex;flex-wrap:wrap;gap:10px;font-weight:700;color:#48557f}
+    @media (max-width:980px){.nav-links{display:none}.brand img{width:186px}} @media (max-width:620px){.wrap{padding:0 16px}.card{padding:18px}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Privacy Policy</h1>
-    <p>Last updated: March 2026</p>
+  <div class="nav-shell"><div class="wrap nav"><a class="brand" href="index.html" aria-label="ElasticKarma Labs home"><img src="assets/logo.png" alt="ElasticKarma Labs" /></a><div class="nav-links"><a href="index.html">Home</a><a href="terms.html">Terms</a><a href="support.html">Support</a></div></div></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="sub">Last updated: March 2026</p>
+    </section>
 
-    <p>
-      This Privacy Policy describes how ElasticKarma LLC ("we", "our", or "us") handles information in our apps, including <strong>ScrollScholar</strong> and <strong>Hydration Lock</strong>.
-    </p>
+    <section class="card">
+      <article class="section"><p>This Privacy Policy describes how ElasticKarma LLC ("we", "our", or "us") handles information in our apps, including <strong>ScrollScholar</strong> and <strong>Hydration Lock</strong>.</p></article>
+      <article class="section"><h2>Information You Provide</h2><p>You may provide content such as study notes, PDFs, images, or text when using the app. This content is used to generate features like flashcards, summaries, or learning challenges.</p></article>
+      <article class="section"><h2>How We Use Information</h2><ul><li>To generate flashcards and study content using AI.</li><li>To enable app features such as habit tracking, streaks, and progress.</li><li>To improve performance, reliability, and user experience.</li></ul></article>
+      <article class="section"><h2>AI and Data Processing</h2><p>Some features require processing your content using artificial intelligence services. Your uploaded content may be securely transmitted to third-party providers to generate results.</p></article>
+      <article class="section"><h2>Third-Party Services</h2><p>We use trusted third-party services to operate the app:</p><ul><li><strong>OpenAI</strong> for AI-powered content generation.</li><li><strong>Supabase</strong> for backend infrastructure and data storage.</li><li><strong>RevenueCat</strong> for managing subscriptions and purchases.</li></ul><p>These providers only process data as necessary to provide app functionality and are not permitted to sell your personal data.</p></article>
+      <article class="section"><h2>Use of Screen Time / Family Controls APIs</h2><p>Some apps use Apple's Screen Time / Family Controls APIs to allow users to voluntarily limit access to selected apps.</p><p>We do not access messages, browsing history, or content from other apps.</p></article>
+      <article class="section"><h2>Data Sharing</h2><p>We do not sell or share your personal data for advertising purposes.</p></article>
+      <article class="section"><h2>Data Retention</h2><p>Your data is retained only as long as necessary to provide app functionality. You can remove your content within the app at any time.</p></article>
+      <article class="section"><h2>Security</h2><p>We use reasonable safeguards to protect your information, but no system is completely secure.</p></article>
+      <article class="section"><h2>Children</h2><p>Our apps are not intended for children under 13.</p></article>
+      <article class="section"><h2>Changes</h2><p>We may update this Privacy Policy from time to time. Continued use of the app means you accept the updated policy.</p></article>
+      <article class="section"><h2>Contact</h2><p>For privacy-related questions, contact <a href="mailto:support@elastickarma.com">support@elastickarma.com</a>.</p></article>
+    </section>
 
-    <h2>Information You Provide</h2>
-    <p>
-      You may provide content such as study notes, PDFs, images, or text when using the app. This content is used to generate features like flashcards, summaries, or learning challenges.
-    </p>
-
-    <h2>How We Use Information</h2>
-    <ul>
-      <li>To generate flashcards and study content using AI</li>
-      <li>To enable app features such as habit tracking, streaks, and progress</li>
-      <li>To improve performance, reliability, and user experience</li>
-    </ul>
-
-    <h2>AI and Data Processing</h2>
-    <p>
-      Some features (such as flashcard generation) require processing your content using artificial intelligence services. Your uploaded content may be securely transmitted to third-party providers to generate results.
-    </p>
-
-    <h2>Third-Party Services</h2>
-    <p>
-      We use trusted third-party services to operate the app:
-    </p>
-    <ul>
-      <li><strong>OpenAI</strong> — for AI-powered content generation</li>
-      <li><strong>Supabase</strong> — for backend infrastructure and data storage</li>
-      <li><strong>RevenueCat</strong> — for managing subscriptions and purchases</li>
-    </ul>
-
-    <p>
-      These providers only process data as necessary to provide app functionality and are not permitted to sell your personal data.
-    </p>
-
-    <h2>Use of Screen Time / Family Controls APIs</h2>
-    <p>
-      Some apps use Apple's Screen Time / Family Controls APIs to allow users to voluntarily limit access to selected apps.
-    </p>
-    <p>
-      We do not access messages, browsing history, or content from other apps.
-    </p>
-
-    <h2>Data Sharing</h2>
-    <p>
-      We do not sell or share your personal data for advertising purposes.
-    </p>
-
-    <h2>Data Retention</h2>
-    <p>
-      Your data is retained only as long as necessary to provide app functionality. You can remove your content within the app at any time.
-    </p>
-
-    <h2>Security</h2>
-    <p>
-      We use reasonable safeguards to protect your information, but no system is completely secure.
-    </p>
-
-    <h2>Children</h2>
-    <p>
-      Our apps are not intended for children under 13.
-    </p>
-
-    <h2>Changes</h2>
-    <p>
-      We may update this Privacy Policy from time to time. Continued use of the app means you accept the updated policy.
-    </p>
-
-    <h2>Contact</h2>
-    <p>
-      For privacy-related questions, contact:
-      <a href="mailto:support@elastickarma.com">support@elastickarma.com</a>
-    </p>
-  </div>
+    <footer><div class="foot"><div><strong style="font-family:'Sora',sans-serif;color:#1b2b66;">ElasticKarma Labs</strong><br />iOS app development for focus, learning, and digital wellbeing.</div><div class="links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></div></div></footer>
+  </main>
 </body>
 </html>
